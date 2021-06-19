@@ -1,0 +1,87 @@
+<div class="modal-box">
+    <button data-modal-window-close  class="modal__btn">
+        <span class="modal__btn_close"></span>
+    </button>
+    <div class="modal__window">
+        <div class="modal__circle">
+            <img src="{{images.[9].url}}" alt="" />
+        </div>
+        <div class="modal__container">
+            <div class="modal__img">
+                <img class="modal-img-test" src=""         
+                alt="тест-картинка" 
+                width="180" 
+                height="227"/>
+            </div>
+            <div class="modal__info">
+                <ul class="modal__list">
+                    <li class="modal__item">
+                        <b class="modal__title">INFO</b>
+                        <p class="modal__text">
+                            {{info}}
+                        </p>
+                    </li>
+                    <li class="modal__item">
+                        <b class="modal__title">WHEN </b>
+                        <ul class="modal__text">
+                            <li>{{dates.start.localDate}}</li>
+                            <li>{{dates.start.localTime}} ({{dates.timezone}})
+                            </li>
+                            <li class="timer" id="timer-1">
+                                <div class="field">
+                                    <span class="value" data-value="days">11</span>
+                                    <span class="label">Days</span>
+                                </div>
+                            
+                                <div class="field">
+                                    <span class="value" data-value="hours">11</span>
+                                    <span class="label">Hours</span>
+                                </div>
+                            
+                                <div class="field">
+                                    <span class="value" data-value="mins">11</span>
+                                    <span class="label">Minutes</span>
+                                </div>
+                            
+                                <div class="field">
+                                    <span class="value" data-value="secs">11</span>
+                                    <span class="label">Seconds</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="modal__item">
+                        <b class="modal__title">WHERE </b>
+                        <ul class="modal__text">
+                                {{#each _embedded.venues}}
+                            <li> {{city.name}}, {{country.name}} </li>
+                            <li> {{name}}</li>
+                                {{/each}}
+                        </ul>
+                    </li>
+                    <li class="modal__item">
+                        <b class="modal__title">WHO</b>
+                        <ul class="modal__text">
+                            <li>{{name}}</li>
+                        </ul>
+                    </li>
+                    <li class="modal__item">
+                        <b class="modal__title">PRICES</b>
+                        <ul>
+                            {{#each priceRanges}}
+                            <li class="modal__text">
+                                <span class="modal__barcode"> {{type}} {{min}} - {{max}} {{currency}}</span>
+                            </li>
+                            <li class="modal_buy" >
+                                <button class="btn" ><a class="modal_buy--btn-link" href="{{../url}}" target="blanck">BUY TICKETS</a></button>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <button class="modal__btn__more" type="submit" data-name="{{name}}">MORE FROM THIS AUTHOR</button>
+    </div>
+</div>
